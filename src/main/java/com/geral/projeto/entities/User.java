@@ -2,9 +2,17 @@ package com.geral.projeto.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id //Aqui declara-se o objeto id, como o principal objeto relacional ao banco de dados
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //Identificando a chave primária
 	private Long id;
 	private String name;
 	private String email;
