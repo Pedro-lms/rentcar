@@ -1,4 +1,4 @@
-package com.geral.projeto.services;
+package com.geral.rent.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.geral.projeto.entities.Order;
-import com.geral.projeto.repositories.OrderRepository;
+import com.geral.rent.entities.Order;
+import com.geral.rent.repositories.OrderRepository;
 
 @Service 
 public class OrderService {

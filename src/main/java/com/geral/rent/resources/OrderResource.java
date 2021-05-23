@@ -1,4 +1,4 @@
-package com.geral.projeto.resources;
+package com.geral.rent.resources;
 
 import java.util.List;
 
@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.geral.projeto.entities.Category;
-import com.geral.projeto.services.CategoryService;
+import com.geral.rent.entities.Order;
+import com.geral.rent.services.OrderService;
 
 @RestController
-@RequestMapping(value = "/categories")  //Define o caminho do recurso de acordo com o mapeamento do objeto relacionado na localhost, ou no acesso
-public class CategoryResource {
+@RequestMapping(value = "/pedidos")  //Define o caminho do recurso de acordo com o mapeamento do objeto relacionado na localhost, ou no acesso
+public class OrderResource {
 
 	@Autowired
-	private CategoryService service;
+	private OrderService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Category>> findAll(){
-		List<Category> list = service.findAll();
+	public ResponseEntity<List<Order>> findAll(){
+		List<Order> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Category> findById(@PathVariable Long id){
-		Category obj = service.findById(id);
+	public ResponseEntity<Order> findById(@PathVariable Long id){
+		Order obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 }

@@ -1,4 +1,4 @@
-package com.geral.projeto.entities;
+package com.geral.rent.entities;
 
 import java.io.Serializable;
 import java.util.HashSet;

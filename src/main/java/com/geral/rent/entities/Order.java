@@ -1,4 +1,4 @@
-package com.geral.projeto.entities;
+package com.geral.rent.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -12,9 +12,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.rent.entities.enums.OrderStatus;
 
 @Entity
-@Table(name = "tb_order") // Retira a confusão
+@Table(name = "tb_pedido") // Retira a confusão
 public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -29,7 +30,7 @@ public class Order implements Serializable {
 
 	@ManyToOne // Instrução para chave estrangeira de acordo com a lógica de muitos pedidos
 				// para um usuário
-	@JoinColumn(name = "clien_id")
+	@JoinColumn(name = "id_pedido")
 	private User client;
 
 	public Order() {

@@ -1,4 +1,4 @@
-package com.geral.projeto.services;
+package com.geral.rent.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.geral.projeto.entities.Category;
-import com.geral.projeto.repositories.CategoryRepository;
+import com.geral.rent.entities.Category;
+import com.geral.rent.repositories.CategoryRepository;
 
 @Service 
 public class CategoryService {

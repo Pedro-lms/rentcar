@@ -1,6 +1,7 @@
-package com.geral.projeto.entities;
+package com.geral.rent.entities;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_product")
+@Table(name = "tb_produto")
 public class Product implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -22,25 +23,33 @@ public class Product implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private String description;
-	private Double price;
+	private String brand;
+	private Double pricePerDay;
+	private Instant PickedDay;
+	private Instant RecivedDay;
 	private String imgUrl;
 	
 	@ManyToMany
-	@JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "categories"))
+	@JoinTable(name = "tb_carro_categoria", joinColumns = @JoinColumn(name = "id_dos_carros"), inverseJoinColumns = @JoinColumn(name = "categories"))
 	private Set<Category> categories = new HashSet<>();
 	
 	public Product() {
 	}
 
-	public Product(Long id, String name, String description, Double price, String imgUrl) {
-		super();
+		public Product(Long id, String name, String brand, Double pricePerDay, Instant pickedDay, Instant recivedDay,
+			String imgUrl) {
 		this.id = id;
 		this.name = name;
-		this.description = description;
-		this.price = price;
+		this.brand = brand;
+		this.pricePerDay = pricePerDay;
+		PickedDay = pickedDay;
+		RecivedDay = recivedDay;
 		this.imgUrl = imgUrl;
+	
 	}
+
+
+
 
 	public Long getId() {
 		return id;
@@ -59,19 +68,19 @@ public class Product implements Serializable{
 	}
 
 	public String getDescription() {
-		return description;
+		return brand;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescription(String brand) {
+		this.brand = brand;
 	}
 
 	public Double getPrice() {
-		return price;
+		return pricePerDay;
 	}
 
-	public void setPrice(Double price) {
-		this.price = price;
+	public void setPrice(Double pricePerDay) {
+		this.pricePerDay = pricePerDay;
 	}
 
 	public String getImgUrl() {
@@ -80,6 +89,22 @@ public class Product implements Serializable{
 
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+
+	public Instant getPickedDay() {
+		return PickedDay;
+	}
+
+	public void setPickedDay(Instant pickedDay) {
+		PickedDay = pickedDay;
+	}
+
+	public Instant getRecivedDay() {
+		return RecivedDay;
+	}
+
+	public void setRecivedDay(Instant recivedDay) {
+		RecivedDay = recivedDay;
 	}
 
 	public Set<Category> getCategories() {
@@ -91,11 +116,11 @@ public class Product implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((categories == null) ? 0 : categories.hashCode());
-		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((brand == null) ? 0 : brand.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((imgUrl == null) ? 0 : imgUrl.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((price == null) ? 0 : price.hashCode());
+		result = prime * result + ((pricePerDay == null) ? 0 : pricePerDay.hashCode());
 		return result;
 	}
 
@@ -113,10 +138,10 @@ public class Product implements Serializable{
 				return false;
 		} else if (!categories.equals(other.categories))
 			return false;
-		if (description == null) {
-			if (other.description != null)
+		if (brand == null) {
+			if (other.brand != null)
 				return false;
-		} else if (!description.equals(other.description))
+		} else if (!brand.equals(other.brand))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -133,10 +158,10 @@ public class Product implements Serializable{
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (price == null) {
-			if (other.price != null)
+		if (pricePerDay == null) {
+			if (other.pricePerDay != null)
 				return false;
-		} else if (!price.equals(other.price))
+		} else if (!pricePerDay.equals(other.pricePerDay))
 			return false;
 		return true;
 	}

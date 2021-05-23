@@ -1,4 +1,4 @@
-package com.geral.projeto.services;
+package com.geral.rent.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.geral.projeto.entities.User;
-import com.geral.projeto.repositories.UserRepository;
+import com.geral.rent.entities.User;
+import com.geral.rent.repositories.UserRepository;
 
 @Service 
 public class UserService {
@@ -26,6 +26,11 @@ public class UserService {
 	
 	public User insert(User obj) {
 		return repository.save(obj);
+	}
+
+	public void delete(Long id) {
+		repository.deleteById(id);
+		
 	}
 }
 
