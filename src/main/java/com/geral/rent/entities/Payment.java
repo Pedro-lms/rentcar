@@ -89,14 +89,8 @@ public class Payment implements Serializable{
 		return overDays * dayPrice;
 	}
 
-	
-	
 	public Double getTotal() {
 		return dayPrice * days + ticketPenalty;
-	}
-
-	public void setTotal(Double total) {
-		total = days * dayPrice + ticketPenalty;
 	}
 
 	public Order getOrder() {
