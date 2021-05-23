@@ -23,6 +23,10 @@ public class UserService {
 		Optional<User> obj = repository.findById(id);
 		return obj.get();
 	}
+	
+	public User insert(User obj) {
+		return repository.save(obj);
+	}
 }
 
 //@Service Registra a classe como componente do spring, da mesma forma que o @Component, porém com uma semântica mais específica
