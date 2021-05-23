@@ -25,7 +25,7 @@ public class Order implements Serializable {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z", timezone = "GMT")
 	private Instant moment;
 
-	private Integer orderStatus;
+	public Integer orderStatus;
 
 	@ManyToOne // Instrução para chave estrangeira de acordo com a lógica de muitos pedidos
 				// para um usuário
