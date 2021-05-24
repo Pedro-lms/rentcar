@@ -36,13 +36,14 @@ public class Payment implements Serializable{
 	public Payment() {
 	}
 
-	public Payment(Long id, Instant moment, Double dayPrice, Integer days, Integer overDays, Double ticketPenalty) {
+	public Payment(Long id, Instant moment, Double dayPrice, Integer days, Integer overDays, Double ticketPenalty, Order order) {
 		this.id = id;
 		this.moment = moment;
 		this.dayPrice = dayPrice;
 		this.days = days;
 		this.overDays = overDays;
 		this.ticketPenalty = ticketPenalty;
+		this.order = order;
 	}
 
 	public Long getId() {
